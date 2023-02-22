@@ -23,18 +23,19 @@ class Contact {
 public:
     Contact(void);
     ~Contact(void);
-    
-    int         index;
+/////////////////////////////////////////////////////////////////////////////////
 	std::string	getfirstname(void) const;
-    // std::string	getlastname(void) const;
-	// std::string	getnickname(void) const;
-	// std::string	getnumber(void) const;
-	// std::string	getdarksecret(void) const;
+    std::string	getlastname(void) const;
+	std::string	getnickname(void) const;
+	std::string	getphonenumber(void) const;
+	std::string	getdarkestsecret(void) const;
+/////////////////////////////////////////////////////////////////////////////////
 	void	setfirstname(std::string firstname);
-	// void	setlastname(std::string LastName);
-	// void	setnickname(std::string NickName);
-	// void	setnumber(std::string Number);
-	// void	setdarksecret(std::string DarkSecret);
+	void	setlastname(std::string LastName);
+	void	setnickname(std::string NickName);
+	void	setphonenumber(std::string Number);
+	void	setdarkestsecret(std::string DarkSecret);
+/////////////////////////////////////////////////////////////////////////////////
     
 private:
 

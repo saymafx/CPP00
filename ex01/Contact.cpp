@@ -14,14 +14,10 @@
 #include "Contact.hpp"
 #include <iomanip>
 
-Contact::Contact(){
-    
-}
+Contact::Contact() {}
+Contact::~Contact(void) {}
 
-Contact::~Contact(void){
-    
-}
-
+/////////////////////////////////////////////////////////////////////////////////
 std::string	Contact::getfirstname(void) const {
 	return this->_firstname;
 }
@@ -29,11 +25,35 @@ std::string	Contact::getfirstname(void) const {
 void	Contact::setfirstname(std::string str) {
 	Contact::_firstname = str;
 }
+/////////////////////////////////////////////////////////////////////////////////
+std::string	Contact::getlastname(void) const {
+	return this->_lastname;
+}
 
-// std::string	Contact::getlastname(void) {
-// 	return this->lastname;
-// }
+void	Contact::setlastname(std::string str) {
+	Contact::_lastname = str;
+}
+/////////////////////////////////////////////////////////////////////////////////
+std::string	Contact::getnickname(void) const {
+	return this->_nickname;
+}
 
-// std::string	Contact::getnickname(void) {
-// 	return this->nickname;
-// }
+void	Contact::setnickname(std::string str) {
+	Contact::_nickname = str;
+}
+/////////////////////////////////////////////////////////////////////////////////
+std::string	Contact::getphonenumber(void) const {
+	return this->_phonenumber;
+}
+
+void	Contact::setphonenumber(std::string str) {
+	Contact::_phonenumber = str;
+}
+/////////////////////////////////////////////////////////////////////////////////
+std::string	Contact::getdarkestsecret(void) const {
+	return this->_darkestsecret;
+}
+
+void	Contact::setdarkestsecret(std::string str) {
+	Contact::_darkestsecret = str;
+}
