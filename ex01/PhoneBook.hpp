@@ -33,7 +33,7 @@ public:
 
 private:
 
-    Contact	contact[8];
+    Contact	contact[9];
 	
 };
 

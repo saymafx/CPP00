@@ -29,34 +29,33 @@ void	PhoneBook::add_contact(int id)
 	{
 		std::cout << "Enter your first name: ";
 		getline(std::cin, firstname);
-		contact[index].setfirstname(firstname);
+		contact[id].setfirstname(firstname);
 	}
 	while (!lastname[0])
 	{
 		std::cout << "Enter your last name: ";
 		getline(std::cin, lastname);
-		contact[index].setlastname(lastname);
+		contact[id].setlastname(lastname);
 	}
 	while (!nickname[0])
 	{
 		std::cout << "Enter your nick name: ";
 		getline(std::cin, nickname);
-		contact[index].setnickname(nickname);
+		contact[id].setnickname(nickname);
 	}
 	while (!phonenumber[0])
 	{
 		std::cout << "Enter your phone number: ";
 		getline(std::cin, phonenumber);
-		contact[index].setphonenumber(phonenumber);
+		contact[id].setphonenumber(phonenumber);
 	}
 	while (!darkestsecret[0])
 	{
 		std::cout << "Enter your darkest secret: ";
 		getline(std::cin, darkestsecret);
-		contact[index].setdarkestsecret(darkestsecret);
+		contact[id].setdarkestsecret(darkestsecret);
 	}
 	std::cout << std::endl;
-	index++;
 }
 /////////////////////////////////////////////////////////////////////////////////
 void    PhoneBook::search_contact(int index)
@@ -64,20 +63,21 @@ void    PhoneBook::search_contact(int index)
     std::string firstname;
     std::string lastname;
     std::string nickname;
-	int			i = 0;
+	int			i = 1;
 
-	if (index == 0)
+	if (index == 1)
 	{
 		std::cout << std::endl;
 		std::cout << RED << "Your have no friends xD" << std::endl;
 		std::cout << NC << std::endl;
+		return ;
 	}
 	else
 	{
 		std::cout << std::endl;
 		while (i < index)
 		{
-			std::cout << RED << i << "         " << NC << " | ";
+			std::cout << NC << i << "         " << RED << " | ";
 /////////////////////////////////////////////////////////////////////////////////
 			firstname = contact[i].getfirstname();
 			if (firstname.size() > 9)
@@ -90,7 +90,7 @@ void    PhoneBook::search_contact(int index)
 				while (firstname.size() < 9)
 					firstname.push_back(' ');
 			}
-			std::cout << RED << firstname << NC << " | ";
+			std::cout << NC << firstname << RED << " | ";
 /////////////////////////////////////////////////////////////////////////////////
 			lastname = contact[i].getlastname();
 			if (lastname.size() > 9)
@@ -103,7 +103,7 @@ void    PhoneBook::search_contact(int index)
 				while (lastname.size() < 9)
 					lastname.push_back(' ');
 			}
-			std::cout << RED << lastname << NC << " | ";
+			std::cout << NC << lastname << RED << " | ";
 /////////////////////////////////////////////////////////////////////////////////
 			nickname = contact[i].getnickname();
 			if (nickname.size() > 9)
@@ -116,10 +116,42 @@ void    PhoneBook::search_contact(int index)
 				while (nickname.size() < 9)
 					nickname.push_back(' ');
 			}
-			std::cout << RED << nickname << std::endl;
+			std::cout << NC << nickname << std::endl;
 /////////////////////////////////////////////////////////////////////////////////
 			i++;
 		}
 		std::cout << NC << std::endl;
 	}
+	PhoneBook::return_contact(index);
+}
+
+void	PhoneBook::return_contact(int index)
+{
+		int	i = 0;
+		int	a = 1;
+
+		while (a != 0)
+		{
+			std::cout << RED << "Choose a number : " << NC;
+			if(!(std::cin >> i))
+			{
+				std::cout<<"[Must be a integer]"<<std::endl;
+				std::cin.clear();
+        		std::cin.ignore(100, '\n');
+			}
+			else
+			{
+				if (i >= 0 && i < index)
+					a = 0;
+			}
+		}
+		std::cout << NC << std::endl ;
+		std::cout << NC << contact[i].getfirstname() << RED << " | ";
+		std::cout << NC << contact[i].getlastname() << RED << " | ";
+		std::cout << NC << contact[i].getnickname() << RED << " | ";
+		std::cout << NC << contact[i].getphonenumber() << RED << " | ";
+		std::cout << NC << contact[i].getdarkestsecret() << NC;
+		std::cout << std::endl << std::endl;
+		std::cin.clear();
+        std::cin.ignore(100, '\n');
 }

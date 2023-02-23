@@ -17,36 +17,47 @@ int main(int ac, char **av)
 {
     PhoneBook	rep;
     std::string command;
-	rep.index = 0;
+	rep.index = 1;
+    int i;
     
 	std::cout << std::endl;
 	std::cout << RED << "~ PHONEBOOK ~" << std::endl << std::endl;
 	std::cout << NC << "Please enter a command" << std::endl;
     while (1)
     {
-	    std::cout << "~ ADD ~ SEARCH ~ EXIT ~" << std::endl;
+	    std::cout << NC << "~ ADD ~ SEARCH ~ EXIT ~" << std::endl;
         std::cout << std::endl;
         getline(std::cin, command);
         /////////////////////////////////////////////////////////////////////////////////
         if (command.compare("ADD") == 0)
 		{
-			if (rep.index == 8)
+			if (i == 9)
 			{
-				std::cout << "Repertoire is full do you want delete one ?" << std::endl;
-				getline(std::cin, command);
+                std::cout << RED;
+				std::cout << "Repertoire is full you will delete the oldest, are you sure ?" << std::endl;
+				std::cout << NC;
+                getline(std::cin, command);
 				if (command.compare("yes") == 0)
 				{
-                    rep.index = 0;
-					rep.add_contact(rep.index);
+                    i = 1;
+					rep.add_contact(i);
+                    i++;
 					std::cout << "new contact added" << std::endl;
 				}
 				else if (command.compare("no") == 0)
-					std::cout << "Nothing changed" << std::endl;
+					std::cout << RED <<"Nothing changed" << NC << std::endl;
                 else
-                    std::cout << "Please write yes or no." << std::endl;
+                    std::cout << RED << "Please write yes or no." << NC << std::endl;
 			}
             else
-                rep.add_contact(rep.index);
+            {
+                rep.add_contact(i);
+                if (rep.index != 9)
+                    rep.index++;
+                std::cout << RED << "new contact added" << NC << std::endl;
+                std::cout << std::endl;
+                i++;
+            }
 		}
         /////////////////////////////////////////////////////////////////////////////////
         else if (command.compare("SEARCH") == 0)
@@ -55,6 +66,6 @@ int main(int ac, char **av)
         else if (command.compare("EXIT") == 0)
             break ;
         else
-			std::cout << "Are you dumb ? Wrong argument try again..." << std::endl;
+			std::cout << RED << "Are you dumb ? Wrong argument try again..." << std::endl << std::endl;
     }
 }
