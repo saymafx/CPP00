@@ -18,18 +18,18 @@ int main(int ac, char **av)
 {
     int 	a;
     int 	i;
-	char	c;
 	std::string	str;
 
     a = 1;
     i = 0;
-	if (ac < 2)
+	if (ac <= 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return 0;
 	}
-    while (av[a])
-    {
+	while (av[a])
+	{
+		i = 0;
 		while (av[a][i])
 		{
 			str = toupper(av[a][i]);
@@ -37,6 +37,6 @@ int main(int ac, char **av)
 			i++;
 		}
 		a++;
-    }
+	}
 	return 0;
 }
