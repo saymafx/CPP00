@@ -19,6 +19,7 @@ int main(int ac, char **av)
     int 	a;
     int 	i;
 	char	c;
+	std::string	str;
 
     a = 1;
     i = 0;
@@ -31,8 +32,8 @@ int main(int ac, char **av)
     {
 		while (av[a][i])
 		{
-			c = toupper(av[a][i]);
-			std::cout << RED << c;
+			str = toupper(av[a][i]);
+			std::cout << RED << str;
 			i++;
 		}
 		a++;
