@@ -64,6 +64,7 @@ void    PhoneBook::search_contact(int index)
     std::string lastname;
     std::string nickname;
 	int			i = 1;
+	int			w = 0;
 
 	if (index == 1)
 	{
@@ -80,43 +81,46 @@ void    PhoneBook::search_contact(int index)
 			std::cout << NC << i << "         " << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			firstname = contact[i].getfirstname();
-			if (firstname.size() > 9)
+			if (firstname.size() > 10)
 			{
 				firstname.resize(9);
 				firstname.push_back('.');
 			}
-			if (firstname.size() < 9)
+			if (firstname.size() < 10)
 			{
-				while (firstname.size() <= 9)
-					firstname.push_back(' ');
+				w = 0;
+				while (firstname.size() + w++ != 10)
+					std::cout << " ";
 			}
-			std::cout << std::right << std::setw(10) << NC << firstname << RED << "|";
+			std::cout << NC << firstname << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			lastname = contact[i].getlastname();
-			if (lastname.size() > 9)
+			if (lastname.size() > 10)
 			{
 				lastname.resize(9);
 				lastname.push_back('.');
 			}
-			if (lastname.size() < 9)
+			if (lastname.size() < 10)
 			{
-				while (lastname.size() <= 9)
-					lastname.push_back(' ');
+				w = 0;
+				while (lastname.size() + w++ != 10)
+					std::cout << " ";
 			}
-			std::cout << std::right << std::setw(1) << NC << lastname << RED << "|";
+			std::cout << NC << lastname << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			nickname = contact[i].getnickname();
-			if (nickname.size() > 9)
+			if (nickname.size() > 10)
 			{
 				nickname.resize(9);
 				nickname.push_back('.');
 			}
-			if (nickname.size() < 9)
+			if (nickname.size() < 10)
 			{
-				while (nickname.size() <= 9)
-					nickname.push_back(' ');
+				w = 0;
+				while (nickname.size() + w++ != 10)
+					std::cout << " ";
 			}
-			std::cout << std::right << std::setw(1) << NC << nickname << std::endl;
+			std::cout << NC << nickname << std::endl;
 /////////////////////////////////////////////////////////////////////////////////
 			i++;
 		}
