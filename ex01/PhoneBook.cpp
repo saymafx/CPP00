@@ -77,7 +77,7 @@ void    PhoneBook::search_contact(int index)
 		std::cout << std::endl;
 		while (i < index)
 		{
-			std::cout << NC << i << "         " << RED << " | ";
+			std::cout << NC << i << "         " << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			firstname = contact[i].getfirstname();
 			if (firstname.size() > 9)
@@ -87,10 +87,10 @@ void    PhoneBook::search_contact(int index)
 			}
 			if (firstname.size() < 9)
 			{
-				while (firstname.size() < 9)
+				while (firstname.size() <= 9)
 					firstname.push_back(' ');
 			}
-			std::cout << NC << firstname << RED << " | ";
+			std::cout << std::right << std::setw(10) << NC << firstname << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			lastname = contact[i].getlastname();
 			if (lastname.size() > 9)
@@ -100,10 +100,10 @@ void    PhoneBook::search_contact(int index)
 			}
 			if (lastname.size() < 9)
 			{
-				while (lastname.size() < 9)
+				while (lastname.size() <= 9)
 					lastname.push_back(' ');
 			}
-			std::cout << NC << lastname << RED << " | ";
+			std::cout << std::right << std::setw(1) << NC << lastname << RED << "|";
 /////////////////////////////////////////////////////////////////////////////////
 			nickname = contact[i].getnickname();
 			if (nickname.size() > 9)
@@ -113,10 +113,10 @@ void    PhoneBook::search_contact(int index)
 			}
 			if (nickname.size() < 9)
 			{
-				while (nickname.size() < 9)
+				while (nickname.size() <= 9)
 					nickname.push_back(' ');
 			}
-			std::cout << NC << nickname << std::endl;
+			std::cout << std::right << std::setw(1) << NC << nickname << std::endl;
 /////////////////////////////////////////////////////////////////////////////////
 			i++;
 		}
@@ -141,7 +141,7 @@ void	PhoneBook::return_contact(int index)
 			}
 			else
 			{
-				if (i >= 0 && i < index)
+				if (i > 0 && i < index)
 					a = 0;
 			}
 		}

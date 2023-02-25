@@ -27,8 +27,8 @@ public:
     
 
     int		index;
-    void	search_contact(int index);
     void	add_contact(int index);
+    void	search_contact(int index);
     void	return_contact(int index);
 
 private:
